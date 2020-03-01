@@ -16,11 +16,11 @@ This project contains both Pokémon box sprites and item sprites. For Pokémon, 
 
 | Directory | Example1 | Example2 | Size | Type | Description |
 |:----------|:-------:|:-------:|:----------|:-----|:------------|
-| `/pokemon‑gen7x` | ![/pokemon-gen7x/ example](pokemon-gen7x/shiny/venusaur.png) | 68×56 | Pokémon | [Gen 7 sprites](https://msikma.github.io/pokesprite/overview/dex-gen7.html), updated to Gen 8 size and contrast |
+| `/pokemon‑gen7x` | ![/pokemon-gen7x/ example1](pokemon-gen7x/shiny/bulbasaur.png) | ![/pokemon-gen7x/ example](pokemon-gen7x/shiny/venusaur.png) | 68×56 | Pokémon | [Gen 7 sprites](https://msikma.github.io/pokesprite/overview/dex-gen7.html), updated to Gen 8 size and contrast |
 | `/pokemon‑gen8` | ![/pokemon-gen8/ example2](pokemon-gen8/shiny/bulbasaur.png) | ![/pokemon-gen8/ example](pokemon-gen8/shiny/venusaur.png) | 68×56 | Pokémon | [Gen 8 sprites](https://msikma.github.io/pokesprite/overview/dex-gen8.html) (plus older Gen 7 sprites where needed) |
 | `/pokemon‑gen8-centered` | ![/pokemon-gen8-centered/ example2](pokemon-gen8-centered/shiny/bulbasaur.png) | ![/pokemon-gen8-centered/ example](pokemon-gen8-centered/shiny/venusaur.png) | 68×56 | Pokémon | [Gen 8 sprites](https://msikma.github.io/pokesprite/overview/dex-gen8.html) (plus older Gen 7 sprites where needed) |
-| `/items` | ![/items/ example](items/evo-item/thunder-stone.png) | 32×32 | Items | [Gen 3–8 inventory items](https://msikma.github.io/pokesprite/overview/inventory.html) |
-| `/items‑outline` | ![/items-outline/ example](items-outline/evo-item/thunder-stone.png) | 32×32 | Items | [Gen 3–8 inventory items](https://msikma.github.io/pokesprite/overview/inventory.html) with *Sword/Shield* style outline |
+| `/items` | ![/items/ example](items/evo-item/thunder-stone.png) | | 32×32 | Items | [Gen 3–8 inventory items](https://msikma.github.io/pokesprite/overview/inventory.html) |
+| `/items‑outline` | ![/items-outline/ example](items-outline/evo-item/thunder-stone.png) | | 32×32 | Items | [Gen 3–8 inventory items](https://msikma.github.io/pokesprite/overview/inventory.html) with *Sword/Shield* style outline |
 
 The item sprites are separated by type in subdirectories (e.g. *"berry", "evo-item", "valuable-item",* etc).
 

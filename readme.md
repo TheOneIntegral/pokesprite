@@ -1,4 +1,4 @@
-[![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+[![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT) [![npm version](https://badge.fury.io/js/pokesprite-images.svg)](https://badge.fury.io/js/pokesprite-images)
 
 # PokéSprite
 
@@ -12,7 +12,7 @@ These sprites can be used as individual files, or accessed programmatically usin
 
 ## Sprites and metadata
 
-This project contains both Pokémon box sprites and item sprites. For Pokémon, both the old style sprites from *Pokémon Sun/Moon* (Gen 7) and the new style sprites from *Pokémon Sword/Shield* (Gen 8) are included. Item sprites are available with Gen 8 style white outlines and without.
+This project contains both Pokémon box sprites and item sprites. For Pokémon, both the old style sprites from *Pokémon Sun/Moon* (Gen 7) and the new style sprites from *Pokémon Sword/Shield* (Gen 8), including the DLC, are included. Item sprites are available with Gen 8 style white outlines and without.
 
 | Directory | Example1 | Example2 | Size | Type | Description |
 |:----------|:-------:|:-------:|:----------|:-----|:------------|
@@ -21,8 +21,9 @@ This project contains both Pokémon box sprites and item sprites. For Pokémon, 
 | `/pokemon‑gen8-centered` | ![/pokemon-gen8-centered/ example2](pokemon-gen8-centered/shiny/bulbasaur.png) | ![/pokemon-gen8-centered/ example](pokemon-gen8-centered/shiny/venusaur.png) | 68×56 | Pokémon | [Gen 8 sprites](https://msikma.github.io/pokesprite/overview/dex-gen8.html) (plus older Gen 7 sprites where needed) |
 | `/items` | ![/items/ example](items/evo-item/thunder-stone.png) | | 32×32 | Items | [Gen 3–8 inventory items](https://msikma.github.io/pokesprite/overview/inventory.html) |
 | `/items‑outline` | ![/items-outline/ example](items-outline/evo-item/thunder-stone.png) | | 32×32 | Items | [Gen 3–8 inventory items](https://msikma.github.io/pokesprite/overview/inventory.html) with *Sword/Shield* style outline |
+| `/misc` | ![/misc/ example](misc/body-style/wings-multiple-gen6.png) | Varies | Misc. | [Miscellaneous sprites](https://msikma.github.io/pokesprite/overview/misc.html) from multiple gens |
 
-The item sprites are separated by type in subdirectories (e.g. *"berry", "evo-item", "valuable-item",* etc).
+The item and miscellaneous sprites are separated by type in subdirectories (e.g. *"berry", "evo-item", "valuable-item", "ribbon",* etc).
 
 Previous generations of games (Gen 1–2 and Gen 3–4) had their own collections of sprites, but these are not included in this project. The original 40×30 Pokémon sprites from Gen 6–7 are kept for legacy purposes in the [`/icons`](icons/) directory.
 
@@ -30,7 +31,7 @@ See the [Pokémon sprite overview page](https://msikma.github.io/pokesprite/over
 
 ## Data files
 
-Developers who want to use these sprites programmatically might want to look at the `/data/dex.json` and `/data/items.json` files; the former contains a list of all Pokémon and their associated sprites, and the latter links all sprites in the repo to their internal IDs used in-game.
+Developers who want to use these sprites programmatically might want to look at the `/data/pokemon.json` and `/data/item-map.json` files; the former contains a list of all Pokémon and their associated sprites, and the latter links all sprites in the repo to their internal IDs used in-game.
 
 ### Pokémon sprite list
 
@@ -97,9 +98,12 @@ The **`forms`** object contains a list of all sprites pertaining to a Pokémon.
 | `is_unofficial_legacy_icon` | As above, but only for the smaller legacy 40×30 sprites (only used for *Melmetal*) |
 | `is_prev_gen_icon` | This sprite is actually from an earlier generation |
 | `has_right` | A unique right-facing sprite is available (e.g. *Roselia*—only for Gen 7 Pokémon) |
-| `has_female` | A unique female sprite is available (e.g. *Unfezant*) |
+| `has_female` | This Pokémon has visible gender differences (e.g. *Unfezant*) |
+| `has_unofficial_female_icon` | The female version of this Pokémon's sprite was custom made (e.g. *Pikachu*) |
 
 <sub>†: only applies to non-shiny sprites, as shiny sprites are always unofficial.</sub>
+
+There are a few cases where a Pokémon's shiny design changed in an update. For example, Minior's shiny form was originally [gray](pokemon-gen8/shiny/minior-blue-gen7.png) but became [colorized](pokemon-gen8/shiny/minior-blue.png) with the release of Pokémon HOME. This project always uses the latest designs, with the old ones renamed to their gen of origin.
 
 ### Inventory items list
 
@@ -109,13 +113,21 @@ Several files are available for processing the sprites for inventory items:
 * [`/data/item-unlinked.json`](data/item-unlinked.json) – all inventory sprites not linked to an item ID—these are mostly duplicates (e.g. the *Metal Coat* sprite is in both *"hold-item"* and *"evo-item"*, and so one goes unused) and legacy files
 * [`/data/item-legacy.json`](data/item-legacy.json) – a list of old item sprites from previous gen games
 
-See the [inventory overview page](https://msikma.github.io/pokesprite/) for a list of items.
+See the [inventory overview page](https://msikma.github.io/pokesprite/overview/inventory.html) for a list of items.
+
+### Miscellaneous sprites
+
+For all other sprites that are neither Pokémon nor inventory items, see [`/data/misc.json`](data/misc.json). Notably, the [ribbons](misc/ribbon) can be found there. Each group of miscellaneous sprites has its own unique data format. See the [miscellaneous overview page](https://msikma.github.io/pokesprite/overview/misc.html) for all included images.
 
 ## Sprite dimensions
 
 Since Gen 8, the Pokémon box sprites have become 68×56 (up from 40×30 in Gen 7) to accommodate larger sprite designs. 
 
-<img align="left" src="resources/images/readme_gen8_size.png" width="177">
+<p align="center">
+<img src="resources/images/readme_gen8_size_1.png" width="166">
+&nbsp;&nbsp;&nbsp;
+<img src="resources/images/readme_gen8_size_2.png" width="166">
+<p>
 
 Most Pokémon did not get a new sprite as of Gen 8, meaning their old sprite was padded to the new size. Sprites were padded from below, with one extra pixel of space on the bottom (see left).
 
@@ -125,7 +137,7 @@ To somewhat mitigate this, the sprites can be made to overlap each other. In nea
 
 The recommended overlap is **-24px left** and **-16px top**, which is a compromise between bringing the smaller sprites closer together and not letting the larger sprites overlap. **Here's an example of what that looks like:**
 
-<p align="center"><img align="center" src="resources/images/offset_example_2x.png" width="512" alt="Sprite offset example"></p>
+<p align="center"><img align="center" src="resources/images/offset_example_2x.png" width="552" alt="Sprite offset example"></p>
 
 With this setup, the larger sprites are quite close together but not uncomfortably so, and the smaller sprites are not too far away from each other. There is some small overlap for the largest sprites (the special Gigantamax forms), but not excessively so, and in most cases it should be rare to see multiple Gigantamax forms next to one another since it's not a permanent form.
 
@@ -137,6 +149,8 @@ For a better example of what many adjacent sprites look like with this setup, se
 
 * **[PKHeX](https://github.com/kwsch/PKHeX)** – Pokémon save file editor
 * **[PikaSprite](https://github.com/arcanis/pikasprite)** – a different interface for PokéSprite sprites
+* **[DexTool](https://github.com/PoshoDev/DexTool)** – management tools for a Pokémon living Dex, shiny hunting and streaming
+* [Spinda Painter](https://msikma.github.io/spinda-spots/) – proof of concept for displaying accurate Spinda spots on its box sprite
 * Many Google Sheets used by Pokémon traders
 
 If your project uses PokéSprite and you'd like to be added to this list, feel free to [open an issue](https://github.com/msikma/pokesprite/issues) to request it.
